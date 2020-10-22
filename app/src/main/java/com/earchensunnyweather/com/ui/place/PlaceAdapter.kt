@@ -9,8 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.earchensunnyweather.com.R
 import com.earchensunnyweather.com.logic.model.Place
+import com.earchensunnyweather.com.ui.weather.WeatherActivity
+import kotlinx.android.synthetic.main.activity_weather.*
 
-class PlaceAdapter(private val fragment: Fragment, private val placeList: List<Place>) :
+class PlaceAdapter(private val fragment: PlaceFragment, private val placeList: List<Place>) :
     RecyclerView.Adapter<PlaceAdapter.ViewHolder>() {
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -21,7 +23,7 @@ class PlaceAdapter(private val fragment: Fragment, private val placeList: List<P
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.place_item, parent, false)
         val holder = ViewHolder(view)
-        /*holder.itemView.setOnClickListener {
+        holder.itemView.setOnClickListener {
             val position = holder.adapterPosition
             val place = placeList[position]
             val activity = fragment.activity
@@ -41,7 +43,8 @@ class PlaceAdapter(private val fragment: Fragment, private val placeList: List<P
                 activity?.finish()
             }
             fragment.viewModel.savePlace(place)
-        }*/
+        }
+
         return holder
     }
 

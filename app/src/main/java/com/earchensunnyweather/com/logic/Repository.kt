@@ -1,7 +1,9 @@
 package com.earchensunnyweather.com.logic
 
 import androidx.lifecycle.liveData
+import com.earchensunnyweather.com.logic.dao.PlaceDao
 import com.earchensunnyweather.com.logic.model.Place
+import com.earchensunnyweather.com.logic.model.Weather
 import com.earchensunnyweather.com.logic.network.SunnyWeatherNetwork
 
 import kotlinx.coroutines.Dispatchers
@@ -26,7 +28,7 @@ object Repository {
     }
 
 
-    /*fun refreshWeather(lng: String, lat: String, placeName: String) = fire(Dispatchers.IO) {
+    fun refreshWeather(lng: String, lat: String, placeName: String) = fire(Dispatchers.IO) {
         coroutineScope {
             val deferredRealtime = async {
                 SunnyWeatherNetwork.getRealtimeWeather(lng, lat)
@@ -64,5 +66,5 @@ object Repository {
                 Result.failure<T>(e)
             }
             emit(result)
-        }*/
+        }
 }
